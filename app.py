@@ -3,8 +3,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from PIL import Image
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from tensorflow.keras.applications import DenseNet201
-from tensorflow.keras.models import Model, load_model
+# from tensorflow.keras.applications import DenseNet201
+from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 import numpy as np
@@ -34,8 +34,9 @@ def display(image_file):
 
 def image_features(image_file):
     global feature
-    model = DenseNet201()
-    fe = Model(inputs=model.input, outputs=model.layers[-2].output)
+    # model = DenseNet201()
+    # fe = Model(inputs=model.input, outputs=model.layers[-2].output)
+    fe = load_model('features')
     image_file = np.expand_dims(image_file, axis=0) ##
     feature = fe.predict(image_file, verbose=0)
     st.write(feature)
