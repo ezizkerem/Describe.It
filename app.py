@@ -1,8 +1,8 @@
 import pickle
 import streamlit as st
 import matplotlib.pyplot as plt
-from PIL import Image, ImageDraw, ImageFont
-from tensorflow.keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array
+from PIL import Image
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.applications import DenseNet201
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
