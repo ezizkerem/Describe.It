@@ -8,7 +8,20 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 import numpy as np
 
-uploaded_file = st.file_uploader("Choose an image...")
+
+st.title('Describe.It')
+
+# header
+col1, col2 = st.columns(2)
+
+robot = Image.open('assets/Robot face-pana.png')
+col1.image(robot, use_column_width=True)
+
+col2.header("How does it work?")
+col2.write('''Describle.It is designed to provide a 15-word description for an image uploaded by the user. To test it, you 
+will need to: \n 1. Drag and drop an image in the box below \n 2. Wait for the AI to generate the information \n Easy right? Let's try it out...''')
+
+uploaded_file = st.file_uploader(' ')
 
 #instantiate variables
 feature = np.array([])
@@ -42,7 +55,7 @@ def generate_caption():
     model = load_model('image_cap')
     
     caption = ''
-    for _ in range(20):
+    for _ in range(15):
         sequence = tokenizer.texts_to_sequences([caption])[0]
         sequence = pad_sequences([sequence], 200)
 
@@ -55,7 +68,7 @@ def generate_caption():
     
 
 if uploaded_file is not None:
-    st.image(uploaded_file, caption='Input Image', use_column_width=True)	
+    st.image(uploaded_file, use_column_width=True)	
     img = display(uploaded_file)
     image_features(img)
-    st.write(generate_caption())
+    st.markdown(f'> {generate_caption()}')
