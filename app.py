@@ -18,7 +18,7 @@ robot = Image.open('assets/Robot face-pana.png')
 col1.image(robot, use_column_width=True)
 
 col2.header("How does it work?")
-col2.write('''Describle.It is designed to provide a 15-word description for an image uploaded by the user. To test it, you 
+col2.write('''Describe.It is designed to provide a 15-word description for an image uploaded by the user. To test it, you 
 will need to: \n 1. Drag and drop an image in the box below \n 2. Wait for the AI to generate the information \n Easy right? Let's try it out...''')
 
 uploaded_file = st.file_uploader(' ')
